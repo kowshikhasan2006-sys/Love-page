@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Do You Love Me?</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+
+    .container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        width: 320px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        position: relative;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #ff4b5c;
+    }
+
+    img {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        position: relative;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .yes {
+        background: #ff4b5c;
+        color: white;
+    }
+
+    .no {
+        background: #999;
+        color: white;
+        position: relative;
+    }
+
+    .result {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="questionBox">
+    <img src="https://media.tenor.com/zKhbCRTnmvYAAAAi/cosytales-couple.gif" alt="love">
+    <h2>Do you love me? ❤️</h2>
+    <div class="btn-container">
+        <button class="yes" onclick="showLove()">Yes</button>
+        <button class="no" onmouseover="moveNo()">No</button>
+    </div>
+</div>
+
+<div class="container result" id="resultBox">
+    <img src="https://media1.tenor.com/m/SHFTOKVLmikAAAAC/hug-kiss.gif" alt="love">
+    <h2>I knew it 😍</h2>
+</div>
+
+<script>
+    function showLove() {
+        document.getElementById("questionBox").style.display = "none";
+        document.getElementById("resultBox").style.display = "block";
+    }
+
+    function moveNo() {
+        const noBtn = document.querySelector(".no");
+        const container = document.querySelector(".container");
+
+        const maxX = container.clientWidth - noBtn.offsetWidth;
+        const maxY = container.clientHeight - noBtn.offsetHeight;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+</script>
+
+</body>
+</html>
